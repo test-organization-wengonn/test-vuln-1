@@ -17,7 +17,7 @@ certifi==2023.7.22
 Flask==2.2.5
 pipenv==2022.4.8
 poetry==1.1.9
-pip==21.1
+pip==23.3
 werkzeug==2.2.3
 pip-tools==4.5.1
 Cython==0.29.1
