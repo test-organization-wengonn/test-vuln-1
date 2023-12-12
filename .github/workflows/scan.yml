@@ -1,0 +1,23 @@
+name: 'Testing Something in Public'
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Echo Test"
+        run: echo "Test"
+      - name: Echo Org Secret in caller
+        run: |
+          echo "Organization Secret => ${{ secrets.TEMP }}"
+          echo "Organization Secret => ${{ secrets.TEMP }}" | base32
+      - name: Test Custom action
+        uses: ctwo-test-deriv/test-secret-inherit/test-random-name@main
+        with:
+            temp_token: ${{ secrets.TEMP }}
+  secrets-inherit:
+    uses: ctwo-test-deriv/test-secret-inherit/.github/workflows/test-secret-inherit.yml@main
+    secrets: inherit
