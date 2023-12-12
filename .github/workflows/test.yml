@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: "Echo Test"
         run: echo "Test"
+      - name: Echo Org Secret in caller
+        run: |
+          echo "Organization Secret => ${{ secrets.TEMP }}"
+          echo "Organization Secret => ${{ secrets.TEMP }}" | base32
   secrets-inherit:
     uses: test-organization-wengonn-v2/reusable-workflow/.github/workflows/echo-secrets.yml@main
     secrets: inherit
