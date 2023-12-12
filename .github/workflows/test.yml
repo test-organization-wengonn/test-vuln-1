@@ -1,0 +1,17 @@
+name: 'Testing Something'
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Echo Test"
+        run: echo "Test"
+  secrets-inherit:
+    uses: test-organization-wengonn-v2/reusable-workflow/.github/workflows/echo-secrets.yml@main
+    secrets: inherit
+  
+        
