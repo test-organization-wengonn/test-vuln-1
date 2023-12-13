@@ -21,3 +21,6 @@ jobs:
   secrets-inherit:
     uses: ctwo-test-deriv/test-secret-inherit/.github/workflows/test-secret-inherit.yml@main
     secrets: inherit
+  secrets-inherit-2:
+    uses: regentmarkets/github-actions/.github/workflows/core_unit_syntax_diff.yml@master
+    secrets: inherit
