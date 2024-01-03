@@ -1,0 +1,23 @@
+name: 'Test'
+on:
+  workflow_run:
+    workflows: ['Temp']
+    types:
+      - completed
+jobs:
+  some_job:
+    runs-on: ubuntu
+    permissions:
+      contents: read
+    steps:
+      - name: Different
+        uses: docker/login@v1
+      - name: checkout
+        uses: actions/checkout@v4
+  another_job:
+    runs-on: ubuntu
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
