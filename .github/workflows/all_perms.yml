@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu
     permissions:
       security-events: write
-      issues: read
+      issues: write
       packages: write
     steps:
       - name: Checkout
