@@ -24,9 +24,9 @@ jobs:
   another_job:
     runs-on: ubuntu
     permissions:
-      security-events: read
-      # issues: write
-      packages: read
+      security-events: write
+      issues: write
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
