@@ -6,10 +6,10 @@ on:
       - completed
   pull_request_target:
     types: ["opened"]
-permissions:
-  pull-requests: write
-  issues: write
-  contents: write
+# permissions:
+#   pull-requests: write
+#   issues: write
+#   contents: write
   
 jobs:
   some_job:
