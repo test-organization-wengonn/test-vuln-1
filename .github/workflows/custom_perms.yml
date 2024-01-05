@@ -6,10 +6,10 @@ on:
       - completed
   pull_request_target:
     types: ["opened"]
-permissions:
-  pull-requests: write
-  issues: write
-  contents: write
+# permissions:
+#   pull-requests: write
+#   issues: write
+#   contents: write
   
 jobs:
   some_job:
@@ -24,9 +24,9 @@ jobs:
   another_job:
     runs-on: ubuntu
     permissions:
-      security-events: write
-      issues: write
-      packages: write
+      security-events: read
+      # issues: write
+      # packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
     uses: test-organization-wengonn/test-vuln-1/.github/workflows/workflow_run.yml@main
   new_job:
     runs-on: ubuntu
-    permissions: read-all
+    # permissions: read-all
     steps:
       - name: Checkout
         uses: actions/checkout@v3
