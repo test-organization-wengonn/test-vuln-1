@@ -1,0 +1,37 @@
+name: 'Test'
+on:
+  workflow_run:
+    workflows: ['Temp']
+    types:
+      - completed
+  pull_request_target:
+    types: ["opened"]
+permissions: write-all
+  
+jobs:
+  some_job:
+    runs-on: ubuntu
+    permissions:
+      contents: read
+    steps:
+      - name: Different
+        uses: docker/login@v1
+      - name: checkout
+        uses: actions/checkout@v4
+  another_job:
+    runs-on: ubuntu
+    permissions:
+      security-events: write
+      issues: write
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+  vuln_job:
+    uses: test-organization-wengonn/test-vuln-1/.github/workflows/workflow_run.yml@main
+  new_job:
+    runs-on: ubuntu
+    permissions: read-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
