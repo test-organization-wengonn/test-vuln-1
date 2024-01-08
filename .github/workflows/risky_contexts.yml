@@ -1,0 +1,33 @@
+name: 'Test'
+on:
+  workflow_run:
+    workflows: ['Temp']
+    types:
+      - completed
+  pull_request_target:
+    types: ["opened"]
+permissions: write-all
+  
+jobs:
+  some_job:
+    runs-on: ubuntu
+    permissions:
+      contents: read
+    steps:
+      - name: Different
+        uses: docker/login@v1
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Run some code
+        run: |
+          echo "${{ github.head_ref }}"
+          echo "${{ github.event.comment.body }}"
+  another_job:
+    runs-on: ubuntu
+    permissions:
+      security-events: write
+      issues: write
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
